@@ -17,9 +17,6 @@ const db = await mysql.createConnection({
 });
 
 console.log('Connected to MySQL database');
-app.get("/", (req, res) => {
-    res.send("Backend is running");
-});
 
 // API endpoint to handle form submissions
 app.post('/api/contact', async (req, res) => {
