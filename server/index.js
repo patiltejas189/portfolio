@@ -29,11 +29,12 @@ app.post('/api/contact', async (req, res) => {
     try {
         const { name, email, subject, message } = req.body;
 
-        const query = `
-      INSERT INTO "contacts" (name, email, subject, message)
-      VALUES ($1, $2, $3, $4)
-    `;
+
+        const query = 'INSERT INTO contacts (name, email, subject, message) VALUES ($1, $2, $3, $4)';
+
         await pool.query(query, [name, email, subject, message]);
+
+
 
         res.json({ success: true, message: 'Contact form submitted successfully' });
     } catch (err) {
