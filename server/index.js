@@ -10,9 +10,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// PostgreSQL connection
+// PostgreSQL connection using environment variable
 const pool = new Pool({
-    connectionString: 'postgresql://postgres:patil@180@db.amzzfjtzgscuzwcbqymp.supabase.co:5432/postgres',
+    connectionString: process.env.DATABASE_URL, // Use environment variable for the connection string
     ssl: {
         rejectUnauthorized: false, // Required for Supabase
     },
@@ -26,9 +26,9 @@ app.post('/api/contact', async (req, res) => {
         const { name, email, subject, message } = req.body;
 
         const query = `
-      INSERT INTO "contact-from-project" (name, email, subject, message)
-      VALUES ($1, $2, $3, $4)
-    `;
+            INSERT INTO "contact-from-project" (name, email, subject, message)
+            VALUES ($1, $2, $3, $4)
+        `;
         await pool.query(query, [name, email, subject, message]);
 
         res.json({ success: true, message: 'Contact form submitted successfully' });
@@ -39,7 +39,7 @@ app.post('/api/contact', async (req, res) => {
 });
 
 // Start server
-const PORT = 5000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
