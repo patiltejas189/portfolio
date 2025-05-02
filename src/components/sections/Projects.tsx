@@ -48,8 +48,7 @@ const Projects: React.FC = () => {
       title: "TaskPro - Task Management System",
       description:
         "A productivity application for managing tasks, projects, and team collaboration.",
-      image:
-        "https://img.freepik.com/premium-vector/time-attendance-tracking-sistem-flat-modern-design-illustration_566886-165.jpg?w=1380",
+      image: "/task.jpg",
       tags: ["Html5", "Css3", "Php", "Sql", "backend"],
       liveUrl: "#",
       githubUrl: "#",
@@ -81,7 +80,7 @@ const Projects: React.FC = () => {
       title: "SoftPro Solutions Website",
       description:
         "A professional website developed for SoftPro Solutions, a company that provides school management systems and admission application platforms. The site showcases their services, features, and client support offerings.",
-      image: "https://softprosolutions.com//admin_assets/img/comp.png",
+      image: "/comp.png",
       tags: ["Html5", "Css3", "Php", "Sql"],
       liveUrl: "https://softprosolutions.com",
       githubUrl: "#",
