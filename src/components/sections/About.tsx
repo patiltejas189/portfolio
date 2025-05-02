@@ -1,7 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Code, Server, Globe, Database } from "lucide-react";
+import {
+  Code,
+  Server,
+  Globe,
+  Database,
+  Cpu,
+  Layers,
+  Terminal,
+  Smartphone,
+} from "lucide-react";
 
 const About: React.FC = () => {
   const [ref, inView] = useInView({
@@ -15,16 +24,28 @@ const About: React.FC = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
+        when: "beforeChildren",
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5 },
+      transition: {
+        duration: 0.6,
+        ease: [0.6, -0.05, 0.01, 0.99],
+      },
+    },
+  };
+
+  const fadeInVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.8 },
     },
   };
 
@@ -32,110 +53,195 @@ const About: React.FC = () => {
     {
       title: "Frontend Development",
       description:
-        "Building responsive, accessible web applications with modern frameworks like React.",
-      icon: <Code size={32} className="text-accent-600" />,
+        "Building responsive, accessible web applications with React, TypeScript, and modern CSS frameworks.",
+      icon: <Code size={36} className="text-accent-500" />,
     },
     {
-      title: "Backend Development",
+      title: "Backend Systems",
       description:
-        "Creating robust, scalable server-side applications using PHP, JAVA, and other technologies.",
-      icon: <Server size={32} className="text-accent-600" />,
+        "Creating robust, scalable server-side applications using Node.js, PHP, Java, and Python.",
+      icon: <Server size={36} className="text-accent-500" />,
     },
     {
       title: "Full Stack Solutions",
       description:
-        "Delivering end-to-end web applications with seamless integration between frontend and backend.",
-      icon: <Globe size={32} className="text-accent-600" />,
+        "End-to-end web applications with seamless integration between frontend and backend services.",
+      icon: <Layers size={36} className="text-accent-500" />,
     },
     {
-      title: "Database Design",
+      title: "Database Architecture",
       description:
-        "Designing efficient database schemas and implementing data storage solutions.",
-      icon: <Database size={32} className="text-accent-600" />,
+        "Designing efficient database schemas and implementing optimized data storage solutions.",
+      icon: <Database size={36} className="text-accent-500" />,
+    },
+    {
+      title: "API Development",
+      description:
+        "Building RESTful and GraphQL APIs with proper documentation and version control.",
+      icon: <Terminal size={36} className="text-accent-500" />,
+    },
+    {
+      title: "Mobile Responsive",
+      description:
+        "Ensuring applications work flawlessly across all device sizes and platforms.",
+      icon: <Smartphone size={36} className="text-accent-500" />,
+    },
+    {
+      title: "Performance Optimization",
+      description:
+        "Improving load times and responsiveness through code optimization and caching.",
+      icon: <Cpu size={36} className="text-accent-500" />,
+    },
+    {
+      title: "Web Accessibility",
+      description:
+        "Implementing WCAG standards to make applications usable by everyone.",
+      icon: <Globe size={36} className="text-accent-500" />,
     },
   ];
 
   return (
-    <section id="about" className="bg-white dark:bg-slate-900 py-16 md:py-24">
+    <section
+      id="about"
+      className="relative bg-white dark:bg-slate-900 py-20 md:py-28 overflow-hidden"
+    >
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-5 dark:opacity-10 pointer-events-none">
+        <div className="absolute top-20 left-10 w-32 h-32 rounded-full bg-accent-500 blur-xl"></div>
+        <div className="absolute bottom-10 right-10 w-48 h-48 rounded-full bg-primary-500 blur-xl"></div>
+      </div>
+
       <motion.div
         ref={ref}
-        className="section-container"
+        className="section-container relative z-10"
         variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
       >
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="section-title text-center">About Me</h2>
-          <div className="w-24 h-1 bg-accent-500 mx-auto mb-8"></div>
-          <p className="max-w-3xl mx-auto text-lg text-slate-600 dark:text-slate-300">
-            As a motivated software developer with 6+ months of hands-on
-            experience, I’m driven by the challenge of turning ideas into
-            functional, elegant code. I specialize in React, PHP, Java, SQL,
-            with a focus on building responsive web applications and solving
-            problems through clean, efficient solutions. Eager to learn,
-            collaborate, and grow—one line of code at a time.
-          </p>
+        {/* About Me Section */}
+        <motion.div variants={itemVariants} className="text-center mb-20">
+          <span className="inline-block text-accent-500 font-medium mb-3 tracking-wider">
+            ABOUT ME
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mb-6">
+            Crafting Digital Experiences
+          </h2>
+          <div className="w-20 h-1.5 bg-accent-500 mx-auto mb-8 rounded-full"></div>
+          <motion.p
+            variants={fadeInVariants}
+            className="max-w-3xl mx-auto text-lg md:text-xl text-slate-600 dark:text-slate-300 leading-relaxed"
+          >
+            As a passionate software developer with 6+ months of hands-on
+            experience, I specialize in building responsive web applications
+            with <span className="text-accent-500 font-medium">React</span>,
+            robust backends with{" "}
+            <span className="text-accent-500 font-medium">PHP & Java</span>, and
+            efficient databases with
+            <span className="text-accent-500 font-medium"> SQL</span>. I
+            approach each project with a focus on clean code, performance, and
+            user experience.
+          </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+        {/* Journey + Image Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-24">
           <motion.div
             variants={itemVariants}
-            className="flex flex-col justify-center"
+            className="lg:col-span-3 flex flex-col justify-center"
           >
-            <h3 className="text-2xl font-bold text-primary-900 dark:text-primary-100 mb-4">
-              My Journey
+            <h3 className="text-3xl font-bold text-slate-800 dark:text-white mb-6">
+              My <span className="text-accent-500">Development</span> Journey
             </h3>
-            <p className="text-slate-600 dark:text-slate-300 mb-4">
-              I started my career as a front-end developer, gradually expanding
-              my skills to become a versatile full-stack developer. Over the
-              months, I've worked with various technologies and frameworks,
-              always staying up-to-date with the latest industry trends.
+            <p className="text-slate-600 dark:text-slate-300 mb-6 text-lg leading-relaxed">
+              My journey in tech began with a fascination for how things work
+              behind the screen. Starting with front-end development, I quickly
+              expanded to full-stack as I wanted to understand the complete
+              picture of web applications.
             </p>
-            <p className="text-slate-600 dark:text-slate-300 mb-4">
-              I hold a Bachelor's degree in Information Technology and am
-              passionate about continuous learning in software development. My
-              approach centers on writing clean, maintainable code and building
-              intuitive user experiences—whether through thoughtful
-              problem-solving or iterative improvements.
+            <p className="text-slate-600 dark:text-slate-300 mb-6 text-lg leading-relaxed">
+              Holding a{" "}
+              <span className="font-medium text-primary-600 dark:text-primary-400">
+                Bachelor's degree in Information Technology
+              </span>
+              , I combine formal education with continuous self-learning to stay
+              at the forefront of web development. I'm particularly interested
+              in the intersection of design and engineering—where beautiful
+              interfaces meet robust functionality.
             </p>
-            <p className="text-slate-600 dark:text-slate-300">
-              When I'm not coding, you can find me hiking in the mountains,
-              reading tech blogs, or contributing to open-source projects.
-            </p>
+            <div className="flex flex-wrap gap-4 mt-2">
+              <span className="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium">
+                React Ecosystem
+              </span>
+              <span className="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium">
+                PHP Frameworks
+              </span>
+              <span className="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium">
+                Java Spring
+              </span>
+              <span className="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium">
+                SQL Databases
+              </span>
+            </div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="relative">
-            <div className="absolute -top-4 -left-4 w-24 h-24 bg-primary-200 dark:bg-primary-800 rounded-md z-0"></div>
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent-200 dark:bg-accent-800 rounded-md z-0"></div>
-            <div className="relative z-10 w-full h-full overflow-hidden rounded-lg shadow-lg">
+          <motion.div
+            variants={itemVariants}
+            className="lg:col-span-2 relative h-80 lg:h-full"
+          >
+            <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary-200 dark:bg-primary-800 rounded-xl z-0"></div>
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent-200 dark:bg-accent-800 rounded-xl z-0"></div>
+            <div className="relative z-10 w-full h-full overflow-hidden rounded-2xl shadow-2xl border-4 border-white dark:border-slate-800">
               <img
-                src="https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg"
-                alt="Working at computer"
-                className="w-full h-full object-cover"
+                src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?q=80&w=2940&auto=format&fit=crop"
+                alt="Developer working"
+                className="w-full h-full object-cover object-center"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent flex items-end p-6">
+                <div>
+                  <h4 className="text-white text-xl font-bold mb-1">
+                    Tejas Patil
+                  </h4>
+                  <p className="text-accent-300 font-medium">
+                    Full Stack Developer
+                  </p>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
 
-        <motion.h3
-          variants={itemVariants}
-          className="text-2xl font-bold text-primary-900 dark:text-primary-100 text-center mb-12"
-        >
-          What I Do
-        </motion.h3>
+        {/* Services Section */}
+        <div className="text-center mb-16">
+          <motion.h3
+            variants={itemVariants}
+            className="text-3xl font-bold text-slate-800 dark:text-white mb-4"
+          >
+            My <span className="text-accent-500">Expertise</span>
+          </motion.h3>
+          <motion.p
+            variants={fadeInVariants}
+            className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300 mb-12"
+          >
+            I offer comprehensive development services tailored to bring your
+            digital ideas to life
+          </motion.p>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="card p-6 flex flex-col items-center text-center hover:translate-y-[-4px]"
+              whileHover={{ y: -8 }}
+              className="group bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-700 hover:border-accent-500/30"
             >
-              <div className="mb-4">{service.icon}</div>
-              <h4 className="text-xl font-semibold text-primary-900 dark:text-primary-100 mb-2">
+              <div className="w-16 h-16 mb-6 rounded-lg bg-accent-100 dark:bg-accent-900/50 flex items-center justify-center group-hover:bg-accent-500/10 transition-colors duration-300">
+                {service.icon}
+              </div>
+              <h4 className="text-xl font-bold text-slate-800 dark:text-white mb-3">
                 {service.title}
               </h4>
-              <p className="text-slate-600 dark:text-slate-300">
+              <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                 {service.description}
               </p>
             </motion.div>

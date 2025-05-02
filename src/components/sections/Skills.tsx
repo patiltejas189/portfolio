@@ -23,43 +23,96 @@ const Skills: React.FC = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5 },
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const skillCardVariants = {
+    hover: {
+      y: -5,
+      boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+      },
     },
   };
 
   const technicalSkills = [
-    { name: "Java", level: 95 },
-    { name: "JavaScript", level: 90 },
-    { name: "React", level: 92 },
-    { name: "PHP", level: 85 },
-    { name: "HTML & CSS", level: 95 },
-    { name: "MongoDB", level: 80 },
-    { name: "SQL", level: 75 },
-    { name: "Docker", level: 70 },
+    { name: "Java", icon: "☕" },
+    { name: "JavaScript", icon: "📜" },
+    { name: "React", icon: "⚛️" },
+    { name: "PHP", icon: "🐘" },
+    { name: "HTML & CSS", icon: "🖥️" },
+    { name: "MongoDB", icon: "🍃" },
+    { name: "SQL", icon: "🗃️" },
+    { name: "Docker", icon: "🐳" },
   ];
 
   const softSkills = [
-    { name: "Problem Solving", level: 90 },
-    { name: "Communication", level: 85 },
-    { name: "Teamwork", level: 95 },
-    { name: "Adaptability", level: 88 },
+    { name: "Problem Solving", icon: "🧩" },
+    { name: "Communication", icon: "💬" },
+    { name: "Teamwork", icon: "👥" },
+    { name: "Adaptability", icon: "🔄" },
   ];
 
-  const SkillBar = ({ name }: { name: string }) => (
-    <motion.div variants={itemVariants} className="mb-6">
-      <div className="flex justify-between mb-1">
-        <span className="font-semibold text-slate-700 dark:text-slate-300">
-          {name}
-        </span>
-      </div>
-      <hr className="border-slate-300 dark:border-slate-600" />
+  const languages = [
+    { name: "English", flag: "🇬🇧", proficiency: "Fluent" },
+    { name: "Marathi", flag: "🇮🇳", proficiency: "Native" },
+    { name: "Hindi", flag: "🇮🇳", proficiency: "Fluent" },
+    { name: "Gujarati", flag: "🇮🇳", proficiency: "Conversational" },
+  ];
+
+  const SkillItem = ({ name, icon }: { name: string; icon: string }) => (
+    <motion.div variants={itemVariants} className="mb-4" whileHover="hover">
+      <motion.div
+        variants={skillCardVariants}
+        className="flex flex-col p-4 bg-white dark:bg-slate-700 rounded-xl shadow-sm hover:shadow-md transition-all border border-slate-100 dark:border-slate-600"
+      >
+        <div className="flex items-center gap-3">
+          <span className="text-2xl">{icon}</span>
+          <span className="font-medium text-slate-700 dark:text-slate-300">
+            {name}
+          </span>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+
+  const LanguageItem = ({
+    name,
+    flag,
+    proficiency,
+  }: {
+    name: string;
+    flag: string;
+    proficiency: string;
+  }) => (
+    <motion.div variants={itemVariants} whileHover="hover">
+      <motion.div
+        variants={skillCardVariants}
+        className="flex items-center gap-4 p-4 bg-white dark:bg-slate-700 rounded-xl shadow-sm hover:shadow-md transition-all border border-slate-100 dark:border-slate-600"
+      >
+        <div className="text-3xl">{flag}</div>
+        <div>
+          <p className="font-medium text-slate-800 dark:text-slate-200">
+            {name}
+          </p>
+          <p className="text-sm text-slate-500 dark:text-slate-400">
+            {proficiency}
+          </p>
+        </div>
+      </motion.div>
     </motion.div>
   );
 
   return (
     <section
       id="skills"
-      className="py-16 md:py-24 bg-slate-50 dark:bg-slate-800"
+      className="py-16 md:py-24 bg-gradient-to-b from-slate-50 to-white dark:from-slate-800 dark:to-slate-900"
     >
       <motion.div
         ref={ref}
@@ -69,63 +122,63 @@ const Skills: React.FC = () => {
         animate={inView ? "visible" : "hidden"}
       >
         <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="section-title text-center">My Skills</h2>
-          <div className="w-24 h-1 bg-accent-500 mx-auto mb-8"></div>
-          <p className="max-w-3xl mx-auto text-lg text-slate-600 dark:text-slate-300">
-            I've developed a diverse set of skills throughout my career. Here's
-            a snapshot of my technical proficiency and soft skills that I bring
-            to every project.
+          <h2 className="section-title text-center">
+            <span className="relative inline-block">
+              <span className="relative z-10">My Skills</span>
+              <span className="absolute bottom-0 left-0 w-full h-3 bg-blue-100 dark:bg-blue-900 opacity-60 -z-0"></span>
+            </span>
+          </h2>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto mb-8 rounded-full"></div>
+          <p className="max-w-3xl mx-auto text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+            I've developed a diverse set of skills throughout my career that I
+            bring to every project. Here's what I can offer:
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <motion.div variants={itemVariants}>
-            <h3 className="text-2xl font-bold text-primary-900 dark:text-primary-100 mb-6">
-              Technical Skills
+            <h3 className="text-2xl font-bold text-primary-900 dark:text-primary-100 mb-6 flex items-center gap-3">
+              <span className="text-3xl bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
+                💻
+              </span>
+              <span>Technical Skills</span>
             </h3>
-            <div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {technicalSkills.map((skill) => (
-                <SkillBar key={skill.name} name={skill.name} />
+                <SkillItem key={skill.name} {...skill} />
               ))}
             </div>
           </motion.div>
 
-          <div>
+          <div className="space-y-8">
             <motion.div variants={itemVariants}>
-              <h3 className="text-2xl font-bold text-primary-900 dark:text-primary-100 mb-6">
-                Soft Skills
+              <h3 className="text-2xl font-bold text-primary-900 dark:text-primary-100 mb-6 flex items-center gap-3">
+                <span className="text-3xl bg-gradient-to-r from-green-500 to-teal-500 text-transparent bg-clip-text">
+                  🧠
+                </span>
+                <span>Soft Skills</span>
               </h3>
-              <div className="mb-12">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {softSkills.map((skill) => (
-                  <SkillBar key={skill.name} name={skill.name} />
+                  <SkillItem
+                    key={skill.name}
+                    name={skill.name}
+                    icon={skill.icon}
+                  />
                 ))}
               </div>
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <h3 className="text-2xl font-bold text-primary-900 dark:text-primary-100 mb-6">
-                Languages
+              <h3 className="text-2xl font-bold text-primary-900 dark:text-primary-100 mb-6 flex items-center gap-3">
+                <span className="text-3xl bg-gradient-to-r from-yellow-500 to-orange-500 text-transparent bg-clip-text">
+                  🌐
+                </span>
+                <span>Languages</span>
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {[
-                  { code: "EN", name: "English", level: "Fluent" },
-                  { code: "MR", name: "Marathi", level: "Mother Tongue" },
-                  { code: "HI", name: "Hindi", level: "Fluent" },
-                  { code: "GU", name: "Gujarati", level: "Conversational" },
-                ].map((lang) => (
-                  <div key={lang.code} className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-primary-100 dark:bg-primary-800 flex items-center justify-center text-primary-900 dark:text-primary-100 font-bold text-lg">
-                      {lang.code}
-                    </div>
-                    <div>
-                      <p className="font-semibold text-slate-800 dark:text-slate-200">
-                        {lang.name}
-                      </p>
-                      <p className="text-slate-600 dark:text-slate-400">
-                        {lang.level}
-                      </p>
-                    </div>
-                  </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {languages.map((lang) => (
+                  <LanguageItem key={lang.name} {...lang} />
                 ))}
               </div>
             </motion.div>

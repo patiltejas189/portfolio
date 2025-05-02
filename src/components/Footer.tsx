@@ -1,5 +1,6 @@
 import React from "react";
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -34,12 +35,29 @@ const Footer: React.FC = () => {
           <div className="mb-6 md:mb-0">
             <a
               href="#home"
-              className="text-2xl font-bold text-primary-900 dark:text-primary-100 flex items-center gap-2"
+              className="text-2xl font-bold text-primary-900 dark:text-primary-100"
             >
-              <div className="w-8 h-8 rounded-md bg-accent-600 flex items-center justify-center text-white">
-                TP
-              </div>
-              <span>Tejas Patil</span>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-2"
+              >
+                <motion.div
+                  initial={{ rotate: 0 }}
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    duration: 10,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                  className="w-10 h-10 rounded-full bg-gradient-to-br from-accent-500 to-accent-700 flex items-center justify-center text-white shadow-lg"
+                >
+                  <Sparkles size={18} className="text-yellow-200" />
+                </motion.div>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-600 to-primary-600 dark:from-accent-400 dark:to-primary-400">
+                  Portfolio
+                </span>
+              </motion.div>
             </a>
             <p className="mt-2 text-slate-600 dark:text-slate-400">
               Software Developer
