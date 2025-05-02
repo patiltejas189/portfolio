@@ -16,7 +16,7 @@ app.use(express.json());
 
 // PostgreSQL connection
 const pool = new Pool({
-    connectionString: 'postgresql://postgres:patil@180@db.amzzfjtzgscuzwcbqymp.supabase.co:5000/postgres',
+    connectionString: 'postgresql://postgres:patil@180@db.amzzfjtzgscuzwcbqymp.supabase.co:5432/postgres',
     ssl: {
         rejectUnauthorized: false, // Required for Supabase
     },
@@ -30,7 +30,7 @@ app.post('/api/contact', async (req, res) => {
         const { name, email, subject, message } = req.body;
 
         const query = `
-      INSERT INTO "contact-from-project" (name, email, subject, message)
+      INSERT INTO "contacts" (name, email, subject, message)
       VALUES ($1, $2, $3, $4)
     `;
         await pool.query(query, [name, email, subject, message]);
