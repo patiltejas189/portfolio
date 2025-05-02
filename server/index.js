@@ -7,12 +7,16 @@ const { Pool } = pkg;
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: 'https://patiltejas-portfolio.netlify.app', // Replace with your real Netlify URL
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type'],
+}));
 app.use(express.json());
 
-// PostgreSQL connection using environment variable
+// PostgreSQL connection
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL, // Use environment variable for the connection string
+    connectionString: 'postgresql://postgres:patil@180@db.amzzfjtzgscuzwcbqymp.supabase.co:5000/postgres',
     ssl: {
         rejectUnauthorized: false, // Required for Supabase
     },
@@ -26,9 +30,9 @@ app.post('/api/contact', async (req, res) => {
         const { name, email, subject, message } = req.body;
 
         const query = `
-            INSERT INTO "contact-from-project" (name, email, subject, message)
-            VALUES ($1, $2, $3, $4)
-        `;
+      INSERT INTO "contact-from-project" (name, email, subject, message)
+      VALUES ($1, $2, $3, $4)
+    `;
         await pool.query(query, [name, email, subject, message]);
 
         res.json({ success: true, message: 'Contact form submitted successfully' });
@@ -39,7 +43,7 @@ app.post('/api/contact', async (req, res) => {
 });
 
 // Start server
-const PORT = process.env.PORT;
+const PORT = 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
