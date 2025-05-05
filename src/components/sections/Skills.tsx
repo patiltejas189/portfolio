@@ -44,7 +44,11 @@ const Skills: React.FC = () => {
   const technicalSkills = [
     { name: "Java", icon: "☕" },
     { name: "JavaScript", icon: "📜" },
+    { name: "TypeScript", icon: "𝕋" },
     { name: "React", icon: "⚛️" },
+    { name: "Spring Boot", icon: "🌱" },
+    { name: "Microservices", icon: "🔌" },
+    { name: "AWS", icon: "☁️" },
     { name: "PHP", icon: "🐘" },
     { name: "HTML & CSS", icon: "🖥️" },
     { name: "MongoDB", icon: "🍃" },
@@ -70,14 +74,12 @@ const Skills: React.FC = () => {
     <motion.div variants={itemVariants} className="mb-4" whileHover="hover">
       <motion.div
         variants={skillCardVariants}
-        className="flex flex-col p-4 bg-white dark:bg-slate-700 rounded-xl shadow-sm hover:shadow-md transition-all border border-slate-100 dark:border-slate-600"
+        className="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-700 rounded-lg shadow-sm hover:shadow-md transition-all border border-slate-100 dark:border-slate-600 h-full"
       >
-        <div className="flex items-center gap-3">
-          <span className="text-2xl">{icon}</span>
-          <span className="font-medium text-slate-700 dark:text-slate-300">
-            {name}
-          </span>
-        </div>
+        <span className="text-4xl mb-3">{icon}</span>
+        <span className="font-medium text-slate-700 dark:text-slate-300 text-center">
+          {name}
+        </span>
       </motion.div>
     </motion.div>
   );
@@ -94,10 +96,10 @@ const Skills: React.FC = () => {
     <motion.div variants={itemVariants} whileHover="hover">
       <motion.div
         variants={skillCardVariants}
-        className="flex items-center gap-4 p-4 bg-white dark:bg-slate-700 rounded-xl shadow-sm hover:shadow-md transition-all border border-slate-100 dark:border-slate-600"
+        className="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-700 rounded-lg shadow-sm hover:shadow-md transition-all border border-slate-100 dark:border-slate-600 h-full"
       >
-        <div className="text-3xl">{flag}</div>
-        <div>
+        <div className="text-4xl mb-3">{flag}</div>
+        <div className="text-center">
           <p className="font-medium text-slate-800 dark:text-slate-200">
             {name}
           </p>
@@ -135,54 +137,49 @@ const Skills: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-12">
+          {/* Technical Skills Section */}
           <motion.div variants={itemVariants}>
             <h3 className="text-2xl font-bold text-primary-900 dark:text-primary-100 mb-6 flex items-center gap-3">
-              <span className="text-3xl bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
-                💻
-              </span>
+              <span className="text-3xl">💻</span>
               <span>Technical Skills</span>
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {technicalSkills.map((skill) => (
                 <SkillItem key={skill.name} {...skill} />
               ))}
             </div>
           </motion.div>
 
-          <div className="space-y-8">
-            <motion.div variants={itemVariants}>
-              <h3 className="text-2xl font-bold text-primary-900 dark:text-primary-100 mb-6 flex items-center gap-3">
-                <span className="text-3xl bg-gradient-to-r from-green-500 to-teal-500 text-transparent bg-clip-text">
-                  🧠
-                </span>
-                <span>Soft Skills</span>
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {softSkills.map((skill) => (
-                  <SkillItem
-                    key={skill.name}
-                    name={skill.name}
-                    icon={skill.icon}
-                  />
-                ))}
-              </div>
-            </motion.div>
+          {/* Soft Skills Section */}
+          <motion.div variants={itemVariants}>
+            <h3 className="text-2xl font-bold text-primary-900 dark:text-primary-100 mb-6 flex items-center gap-3">
+              <span className="text-3xl">🧠</span>
+              <span>Soft Skills</span>
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+              {softSkills.map((skill) => (
+                <SkillItem
+                  key={skill.name}
+                  name={skill.name}
+                  icon={skill.icon}
+                />
+              ))}
+            </div>
+          </motion.div>
 
-            <motion.div variants={itemVariants}>
-              <h3 className="text-2xl font-bold text-primary-900 dark:text-primary-100 mb-6 flex items-center gap-3">
-                <span className="text-3xl bg-gradient-to-r from-yellow-500 to-orange-500 text-transparent bg-clip-text">
-                  🌐
-                </span>
-                <span>Languages</span>
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {languages.map((lang) => (
-                  <LanguageItem key={lang.name} {...lang} />
-                ))}
-              </div>
-            </motion.div>
-          </div>
+          {/* Languages Section */}
+          <motion.div variants={itemVariants}>
+            <h3 className="text-2xl font-bold text-primary-900 dark:text-primary-100 mb-6 flex items-center gap-3">
+              <span className="text-3xl">🌐</span>
+              <span>Languages</span>
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+              {languages.map((lang) => (
+                <LanguageItem key={lang.name} {...lang} />
+              ))}
+            </div>
+          </motion.div>
         </div>
       </motion.div>
     </section>

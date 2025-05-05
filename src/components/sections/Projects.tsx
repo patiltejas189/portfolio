@@ -85,6 +85,16 @@ const Projects: React.FC = () => {
       liveUrl: "https://softprosolutions.com",
       githubUrl: "#",
     },
+    {
+      id: 6,
+      title: "TicTacToe",
+      description:
+        "A professional website developed for SoftPro Solutions, a company that provides school management systems and admission application platforms. The site showcases their services, features, and client support offerings.",
+      image: "/comp.png",
+      tags: ["React", "Css3"],
+      liveUrl: "https://gametictactoereactapp.netlify.app/",          
+      githubUrl: "#",
+    },
   ];
 
   const filteredProjects =

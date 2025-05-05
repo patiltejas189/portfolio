@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
@@ -8,18 +8,6 @@ const Contact: React.FC = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -38,55 +26,6 @@ const Contact: React.FC = () => {
       y: 0,
       transition: { duration: 0.5 },
     },
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch(
-        "https://portfolio-ql0l.onrender.com/api/contact",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      // const data = await response.json();
-
-      if (response.ok) {
-        setSubmitStatus("success");
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-      } else {
-        setSubmitStatus("error");
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      setSubmitStatus("error");
-    } finally {
-      setIsSubmitting(false);
-
-      // Reset status after 5 seconds
-      setTimeout(() => {
-        setSubmitStatus("idle");
-      }, 5000);
-    }
   };
 
   return (
@@ -127,7 +66,7 @@ const Contact: React.FC = () => {
                     Email
                   </h4>
                   <a
-                    href="mailto:john.doe@example.com"
+                    href="mailto:patiltejas189@gmail.com"
                     className="text-slate-600 dark:text-slate-300 hover:text-primary-700 dark:hover:text-primary-400 transition-colors"
                   >
                     patiltejas189@gmail.com
@@ -144,7 +83,7 @@ const Contact: React.FC = () => {
                     Phone
                   </h4>
                   <a
-                    href="tel:+1234567890"
+                    href="tel:+918691805257"
                     className="text-slate-600 dark:text-slate-300 hover:text-primary-700 dark:hover:text-primary-400 transition-colors"
                   >
                     +91 869 180 5257
@@ -197,7 +136,11 @@ const Contact: React.FC = () => {
               Send Me a Message
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              action="https://getform.io/f/bzywmzga"
+              method="POST"
+              className="space-y-6"
+            >
               <div>
                 <label
                   htmlFor="name"
@@ -209,8 +152,6 @@ const Contact: React.FC = () => {
                   type="text"
                   id="name"
                   name="name"
-                  value={formData.name}
-                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-md border border-slate-300 dark:border-slate-600 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 outline-none transition-all"
                   placeholder="Your name"
@@ -228,8 +169,6 @@ const Contact: React.FC = () => {
                   type="email"
                   id="email"
                   name="email"
-                  value={formData.email}
-                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-md border border-slate-300 dark:border-slate-600 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 outline-none transition-all"
                   placeholder="Your email"
@@ -247,8 +186,6 @@ const Contact: React.FC = () => {
                   type="text"
                   id="subject"
                   name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-md border border-slate-300 dark:border-slate-600 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 outline-none transition-all"
                   placeholder="Subject of your message"
@@ -265,8 +202,6 @@ const Contact: React.FC = () => {
                 <textarea
                   id="message"
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
                   required
                   rows={5}
                   className="w-full px-4 py-3 rounded-md border border-slate-300 dark:border-slate-600 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 outline-none transition-all resize-y"
@@ -276,35 +211,11 @@ const Contact: React.FC = () => {
 
               <button
                 type="submit"
-                disabled={isSubmitting}
                 className="btn btn-primary w-full flex justify-center items-center gap-2"
               >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white rounded-full border-t-transparent animate-spin"></div>
-                    <span>Sending...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send size={18} />
-                    <span>Send Message</span>
-                  </>
-                )}
+                <Send size={18} />
+                <span>Send Message</span>
               </button>
-
-              {submitStatus === "success" && (
-                <div className="p-4 bg-success-100 text-success-900 rounded-md">
-                  Your message has been sent successfully. I'll get back to you
-                  soon!
-                </div>
-              )}
-
-              {submitStatus === "error" && (
-                <div className="p-4 bg-error-100 text-error-900 rounded-md">
-                  There was an error sending your message. Please try again
-                  later.
-                </div>
-              )}
             </form>
           </motion.div>
         </div>
