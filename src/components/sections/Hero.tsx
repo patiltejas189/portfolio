@@ -295,7 +295,7 @@ const Hero: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full blur-2xl opacity-20 animate-pulse"></div>
                 <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-white dark:border-slate-700 shadow-2xl">
                   <motion.img
-                    src="/19633.jpg"
+                    src="/TejasPatil.png"
                     alt="Tejas Patil"
                     className="w-full h-full object-cover"
                     whileHover={{ scale: 1.03 }}
