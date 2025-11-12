@@ -37,7 +37,7 @@ const Projects: React.FC = () => {
       description:
         "A responsive website for Dharavi Dev Mandir, built to provide information about temple events, history, and donation options.",
       image:
-        "https://scontent.fbom48-1.fna.fbcdn.net/v/t39.30808-6/481666427_937811248549198_7506744888172156669_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=t-ICv9n8XioQ7kNvwFfa_8r&_nc_oc=Adlg5-M-SuCokCSeywJE_SoqU8j0yu7E2-3KorlZMWKULEC_RCVEGXtPMHG-kxu78E4&_nc_zt=23&_nc_ht=scontent.fbom48-1.fna&_nc_gid=SMlVK9VFSsz72OlSgTVImA&oh=00_AfHs6sWUh6RFVm8CFeVRqEaeJRDH_IecRb3EBTnw_vdvkA&oe=68196169", // You can replace this with a temple-related image URL
+        "/dharavidevi.png", // You can replace this with a temple-related image URL
       tags: ["Html", "Css", "Php", "Sql"],
       liveUrl: "https://dharavidevimandir.org", // Replace with actual live URL if available
       githubUrl: "#", // Replace with GitHub repo URL if available
