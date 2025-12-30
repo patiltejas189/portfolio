@@ -51,51 +51,51 @@ const About: React.FC = () => {
 
   const services = [
     {
-      title: "Frontend Development",
+      title: "Backend Development",
       description:
-        "Building responsive, accessible web applications with React, TypeScript, and modern CSS frameworks.",
-      icon: <Code size={36} className="text-accent-500" />,
-    },
-    {
-      title: "Backend Systems",
-      description:
-        "Creating robust, scalable server-side applications using Node.js, PHP, Java, and Python.",
+        "Building robust, scalable server-side applications using Java, Spring Boot, and REST APIs.",
       icon: <Server size={36} className="text-accent-500" />,
     },
     {
-      title: "Full Stack Solutions",
+      title: "Database Design",
       description:
-        "End-to-end web applications with seamless integration between frontend and backend services.",
-      icon: <Layers size={36} className="text-accent-500" />,
-    },
-    {
-      title: "Database Architecture",
-      description:
-        "Designing efficient database schemas and implementing optimized data storage solutions.",
+        "Designing efficient database schemas and implementing optimized queries with SQL Server and MySQL.",
       icon: <Database size={36} className="text-accent-500" />,
     },
     {
       title: "API Development",
       description:
-        "Building RESTful and GraphQL APIs with proper documentation and version control.",
+        "Developing RESTful APIs with proper validations, exception handling, and integration with frontend applications.",
       icon: <Terminal size={36} className="text-accent-500" />,
     },
     {
-      title: "Mobile Responsive",
+      title: "Microservices Architecture",
       description:
-        "Ensuring applications work flawlessly across all device sizes and platforms.",
-      icon: <Smartphone size={36} className="text-accent-500" />,
+        "Building modular and scalable applications with microservices and Docker containers.",
+      icon: <Layers size={36} className="text-accent-500" />,
     },
     {
       title: "Performance Optimization",
       description:
-        "Improving load times and responsiveness through code optimization and caching.",
+        "Improving application efficiency and reducing backend issues through optimized code and database queries.",
       icon: <Cpu size={36} className="text-accent-500" />,
     },
     {
-      title: "Web Accessibility",
+      title: "Web Integration",
       description:
-        "Implementing WCAG standards to make applications usable by everyone.",
+        "Integrating backend services with modern frontend applications built using React.js.",
+      icon: <Code size={36} className="text-accent-500" />,
+    },
+    {
+      title: "Responsive & Scalable Solutions",
+      description:
+        "Ensuring applications perform reliably across devices, supporting business growth and user demands.",
+      icon: <Smartphone size={36} className="text-accent-500" />,
+    },
+    {
+      title: "Web Standards & Accessibility",
+      description:
+        "Following coding best practices, security standards, and accessibility guidelines for professional software development.",
       icon: <Globe size={36} className="text-accent-500" />,
     },
   ];
@@ -124,26 +124,18 @@ const About: React.FC = () => {
             ABOUT ME
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mb-6">
-            Crafting Digital Experiences
+            Crafting Scalable Backend Solutions
           </h2>
           <div className="w-20 h-1.5 bg-accent-500 mx-auto mb-8 rounded-full"></div>
           <motion.p
             variants={fadeInVariants}
             className="max-w-3xl mx-auto text-lg md:text-xl text-slate-600 dark:text-slate-300 leading-relaxed"
           >
-            As a passionate software developer with 6+ months of hands-on
-            experience, I specialize in building responsive web applications
-            with <span className="text-accent-500 font-medium">React</span>,
-            robust backends with{" "}
-            <span className="text-accent-500 font-medium">PHP & Java</span>, and
-            efficient databases with
-            <span className="text-accent-500 font-medium"> SQL</span>. I
-            approach each project with a focus on clean code, performance, and
-            user experience.
+            I am a passionate <span className="text-accent-500 font-medium">Java Developer</span> with 1.5+ years of experience building backend systems using <span className="text-accent-500 font-medium">Java</span> and <span className="text-accent-500 font-medium">Spring Boot</span>. I specialize in creating RESTful APIs, optimized database solutions, and scalable applications that power modern web systems. I also integrate these services with frontend frameworks like <span className="text-accent-500 font-medium">React.js</span> for seamless user experiences.
           </motion.p>
         </motion.div>
 
-        {/* Journey + Image Section */}
+        {/* Journey + Skills */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-24">
           <motion.div
             variants={itemVariants}
@@ -153,33 +145,29 @@ const About: React.FC = () => {
               My <span className="text-accent-500">Development</span> Journey
             </h3>
             <p className="text-slate-600 dark:text-slate-300 mb-6 text-lg leading-relaxed">
-              My journey in tech began with a fascination for how things work
-              behind the screen. Starting with front-end development, I quickly
-              expanded to full-stack as I wanted to understand the complete
-              picture of web applications.
+              I started my career focusing on backend development, building robust applications with Java and Spring Boot. Over time, I also gained experience integrating these backends with modern frontends to deliver full-featured applications.
             </p>
             <p className="text-slate-600 dark:text-slate-300 mb-6 text-lg leading-relaxed">
-              Holding a{" "}
-              <span className="font-medium text-primary-600 dark:text-primary-400">
-                Bachelor's degree in Information Technology
-              </span>
-              , I combine formal education with continuous self-learning to stay
-              at the forefront of web development. I'm particularly interested
-              in the intersection of design and engineering—where beautiful
-              interfaces meet robust functionality.
+              With a <span className="font-medium text-primary-600 dark:text-primary-400">Bachelor's degree in Information Technology</span> and hands-on experience in professional projects, I aim to create clean, maintainable, and scalable solutions.
             </p>
             <div className="flex flex-wrap gap-4 mt-2">
               <span className="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium">
-                React Ecosystem
+                Java
               </span>
               <span className="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium">
-                PHP Frameworks
+                Spring Boot
               </span>
               <span className="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium">
-                Java Spring
+                RESTful APIs
               </span>
               <span className="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium">
-                SQL Databases
+                SQL Server / MySQL
+              </span>
+              <span className="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium">
+                React.js (integration)
+              </span>
+              <span className="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium">
+                Docker
               </span>
             </div>
           </motion.div>
@@ -202,7 +190,7 @@ const About: React.FC = () => {
                     Tejas Patil
                   </h4>
                   <p className="text-accent-300 font-medium">
-                    Full Stack Developer
+                    Java Developer
                   </p>
                 </div>
               </div>
@@ -210,7 +198,7 @@ const About: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Services Section */}
+        {/* Expertise / Services */}
         <div className="text-center mb-16">
           <motion.h3
             variants={itemVariants}
@@ -222,8 +210,7 @@ const About: React.FC = () => {
             variants={fadeInVariants}
             className="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300 mb-12"
           >
-            I offer comprehensive development services tailored to bring your
-            digital ideas to life
+            I focus on backend architecture, API development, and full-stack integration to deliver reliable, scalable software solutions.
           </motion.p>
         </div>
 
