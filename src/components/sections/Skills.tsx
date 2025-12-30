@@ -42,33 +42,35 @@ const Skills: React.FC = () => {
   };
 
   const technicalSkills = [
-    { name: "Java", icon: "☕" },
-    { name: "JavaScript", icon: "📜" },
-    { name: "TypeScript", icon: "𝕋" },
-    { name: "React", icon: "⚛️" },
-    { name: "Spring Boot", icon: "🌱" },
-    { name: "Microservices", icon: "🔌" },
-    { name: "AWS", icon: "☁️" },
-    { name: "PHP", icon: "🐘" },
-    { name: "HTML & CSS", icon: "🖥️" },
-    { name: "MongoDB", icon: "🍃" },
-    { name: "SQL", icon: "🗃️" },
-    { name: "Docker", icon: "🐳" },
-  ];
+  { name: "Java", icon: "☕" },
+  { name: "Spring Boot", icon: "🌱" },
+  { name: "RESTful APIs", icon: "🔗" },
+  { name: "JDBC", icon: "🧩" },
+  { name: "Microservices (Basics)", icon: "🧱" },
+  { name: "React.js", icon: "⚛️" },
+  { name: "JavaScript (ES6+)", icon: "📜" },
+  { name: "HTML & CSS", icon: "🖥️" },
+  { name: "MySQL", icon: "🗃️" },
+  { name: "SQL Server", icon: "🗄️" },
+  { name: "Git & GitHub", icon: "🔧" },
+  { name: "Docker (Basics)", icon: "🐳" },
+];
 
-  const softSkills = [
-    { name: "Problem Solving", icon: "🧩" },
-    { name: "Communication", icon: "💬" },
-    { name: "Teamwork", icon: "👥" },
-    { name: "Adaptability", icon: "🔄" },
-  ];
+
+ const softSkills = [
+  { name: "Problem Solving", icon: "🧠" },
+  { name: "Clean Code Practices", icon: "🧹" },
+  { name: "Debugging & Testing", icon: "🧪" },
+  { name: "Team Collaboration", icon: "👥" },
+  { name: "Agile & SDLC", icon: "🔄" },
+];
 
   const languages = [
-    { name: "English", flag: "🇬🇧", proficiency: "Fluent" },
-    { name: "Marathi", flag: "🇮🇳", proficiency: "Native" },
-    { name: "Hindi", flag: "🇮🇳", proficiency: "Fluent" },
-    { name: "Gujarati", flag: "🇮🇳", proficiency: "Conversational" },
-  ];
+  { name: "English", flag: "🇬🇧", proficiency: "Fluent" },
+  { name: "Marathi", flag: "🇮🇳", proficiency: "Native" },
+  { name: "Hindi", flag: "🇮🇳", proficiency: "Fluent" },
+  { name: "Gujarati", flag: "🇮🇳", proficiency: "Conversational" },
+];
 
   const SkillItem = ({ name, icon }: { name: string; icon: string }) => (
     <motion.div variants={itemVariants} className="mb-4" whileHover="hover">
