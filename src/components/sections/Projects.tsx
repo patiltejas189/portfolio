@@ -89,16 +89,16 @@ const Projects: React.FC = () => {
       type: "frontend",
     },
     {
-      id: 6,
-      title: "Tic-Tac-Toe Game",
-      description:
-        "A dynamic Tic-Tac-Toe game built with React.js, featuring AI opponent and interactive animations.",
-      image: "/tictactoe.png",
-      tags: ["React", "JavaScript", "Frontend"],
-      liveUrl: "https://gametictactoereactapp.netlify.app/",
-      githubUrl: "#",
-      type: "frontend",
-    },
+    id: 6,
+    title: "VisitantPro - Visitor Management System",
+    description:
+      "A secure visitor management system developed with Java and Spring Boot, supporting visitor entry/exit workflows and reporting functionalities.",
+    image: "/visitantpro.png", // Replace with your project image
+    tags: ["Java", "Spring Boot", "SQL Server", "REST API", "Backend"],
+    liveUrl: "#",
+    githubUrl: "#",
+    type: "backend",
+  },
   ];
 
   const filteredProjects =
