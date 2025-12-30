@@ -134,7 +134,7 @@ const Navbar: React.FC = () => {
 
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <a
-                href="/Tejas_Resume.pdf"
+                href="/TejasPatil.pdf"
                 download
                 className="btn btn-primary flex items-center gap-2 bg-gradient-to-r from-accent-500 to-primary-600 hover:from-accent-600 hover:to-primary-700 text-white shadow-lg hover:shadow-accent-500/30 transition-all"
               >
@@ -220,7 +220,7 @@ const Navbar: React.FC = () => {
                 className="pt-2"
               >
                 <a
-                  href="/Tejas_Resume.pdf"
+                  href="/TejasPatil.pdf"
                   download
                   className="btn btn-primary w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-accent-500 to-primary-600 hover:from-accent-600 hover:to-primary-700 text-white shadow-lg"
                   onClick={() => setIsOpen(false)}
