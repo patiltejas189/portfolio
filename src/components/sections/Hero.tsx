@@ -124,7 +124,7 @@ const Hero: React.FC = () => {
               <motion.a href="https://github.com/patiltejas189" target="_blank" rel="noopener noreferrer" className="social-icon" whileHover={{ scale: 1.2, y: -5 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 10 }} aria-label="Github"><Github size={24} /></motion.a>
               <motion.a href="https://www.linkedin.com/in/tejas-patil-49031816b" target="_blank" rel="noopener noreferrer" className="social-icon" whileHover={{ scale: 1.2, y: -5 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 10 }} aria-label="LinkedIn"><Linkedin size={24} /></motion.a>
               <motion.a href="mailto:patiltejas189@gmail.com" className="social-icon" whileHover={{ scale: 1.2, y: -5 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 10 }} aria-label="Email"><Mail size={24} /></motion.a>
-              <motion.a href="/Tejas_Resume.pdf" download className="social-icon" whileHover={{ scale: 1.2, y: -5 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 10 }} aria-label="Resume"><FileText size={24} /></motion.a>
+              <motion.a href="/TejasPatil.pdf" download className="social-icon" whileHover={{ scale: 1.2, y: -5 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 10 }} aria-label="Resume"><FileText size={24} /></motion.a>
             </motion.div>
           </motion.div>
 
